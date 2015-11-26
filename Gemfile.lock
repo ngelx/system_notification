@@ -148,7 +148,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  annotate (~> 2.6.5)
+  annotate
   factory_girl
   factory_girl_rails (~> 4.0)
   rspec-rails (~> 3.0)

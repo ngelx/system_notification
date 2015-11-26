@@ -18,5 +18,5 @@ gem 'rspec-rails', '~> 3.0'
 
 gem "factory_girl_rails", "~> 4.0"
 gem 'factory_girl'
-gem 'annotate', '~> 2.6.5'
+gem 'annotate'
 gem 'simplecov', require: false
