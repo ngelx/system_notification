@@ -4,4 +4,9 @@ This project rocks and uses MIT-LICENSE.
 
 = TODO
  add UUID
- 
+
+= Config
+
+class User < ActiveRecord::Base
+  has_many :notifications, class_name: 'SystemNotification::Message'
+end

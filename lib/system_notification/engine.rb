@@ -18,8 +18,10 @@ module SystemNotification
 
     initializer :fix_migrations do |app|
       if app.root.to_s.match root.to_s
-        task :set_annotation_options do
-          Rake::Task["engine:set_annotation_options"].invoke
+        if Rails.env.development?
+          task :set_annotation_options do
+            Rake::Task["engine:set_annotation_options"].invoke
+          end
         end
       else
         config.paths["db/migrate"].expanded.each do |expanded_path|
