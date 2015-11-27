@@ -7,11 +7,11 @@ require "system_notification/version"
 Gem::Specification.new do |s|
   s.name        = "system_notification"
   s.version     = SystemNotification::VERSION
-  s.authors     = [""]
-  s.email       = [""]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of SystemNotification."
-  s.description = "TODO: Description of SystemNotification."
+  s.authors     = ["Angel Arancibia"]
+  s.email       = ["ngel@protonmail.com"]
+  s.homepage    = "https://github.com/ngelx/system_notification"
+  s.summary     = "System wide persistent notification."
+  s.description = "System notification that will survive through different request. i.e. notify user for account limits."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
@@ -22,5 +22,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency "sqlite3"
   s.add_development_dependency 'rspec-rails'
   s.add_development_dependency 'factory_girl_rails'
-  
+  s.add_development_dependency 'simplecov'
+
 end
