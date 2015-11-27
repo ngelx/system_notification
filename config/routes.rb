@@ -1,4 +1,4 @@
 SystemNotification::Engine.routes.draw do
-  put '/messages/:id/seen', to: 'messages#seen', as: 'message_seen'
-  put '/messages/:id/dismiss', to: 'messages#dismiss', as: 'message_dismiss'
+  get '/message/:id/seen', to: 'message#seen', as: 'message_seen'
+  get '/message/:id/dismiss', to: 'message#dismiss', as: 'message_dismiss'
 end

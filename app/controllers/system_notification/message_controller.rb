@@ -27,7 +27,7 @@ module SystemNotification
     private
 
     def load_scoped_message
-      @message = current_user.notifications.find_by(id: param[:id])
+      @message = current_user.notifications.find_by(id: params[:id])
       return false unless @message
     end
   end
