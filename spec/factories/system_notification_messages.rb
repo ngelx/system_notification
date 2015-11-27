@@ -7,12 +7,12 @@ FactoryGirl.define do
     text "MyText"
   end
 
-  factory :system_notification_message_seen, parent: :system_notification_message do
-    seen true
-  end
-
-  factory :system_notification_message_dismiss, parent: :system_notification_message do
-    dismiss true
-  end
+  # factory :system_notification_message_seen, parent: :system_notification_message do
+  #   seen true
+  # end
+  #
+  # factory :system_notification_message_dismiss, parent: :system_notification_message do
+  #   dismiss true
+  # end
 
 end
