@@ -1,9 +1,12 @@
 module SystemNotification
   class ApplicationController < ActionController::Base
 
-    #helper :
+    helper_method :current_notifications, :add_notification
+
+    # Get not dismissed notifications for current user
+    # @return [ActiveRecord::AssociationRelation]
     def current_notifications
-      @current_notifications ||= current_user.system_notifications
+      @current_notifications ||= current_user.system_notifications.not_dismissed
     end
 
     # Add a notification message to the current_user

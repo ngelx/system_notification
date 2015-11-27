@@ -15,12 +15,11 @@ gemspec
 
 
 
-
-group :development, :test do
-  gem 'rubocop', require: false
-  gem 'rspec-rails', '~> 3.0'
-  gem "factory_girl_rails", "~> 4.0"
-  gem 'factory_girl'
-  gem 'annotate'
-  gem 'simplecov', require: false
-end
+# group :development, :test do
+#   gem 'rubocop', require: false
+#   gem 'rspec-rails', '~> 3.0'
+#   gem "factory_girl_rails", "~> 4.0"
+#   gem 'factory_girl'
+#   gem 'annotate'
+#   gem 'simplecov', require: false
+# end

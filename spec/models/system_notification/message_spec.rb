@@ -7,14 +7,49 @@ module SystemNotification
         expect(FactoryGirl.build(:system_notification_message).valid?).to be true
       end
 
-      it 'User has defined the has_many accessor' do
-        message = FactoryGirl.create(:system_notification_message)
 
-        user = message.user
+    end
 
-        expect(user.notifications.count).to be 1
+    describe 'seen/unseen' do
+      let(:user) { FactoryGirl.create(:user) }
+
+      before :each do
+        create_list(:system_notification_message, 3, user: user)
       end
 
+      it {expect(user.notifications.take.seen?).to be false}
+      it {expect(user.notifications.unseen.length).to be 3}
+      it {
+        n = user.notifications.take
+        n.seen!
+        expect(n.seen?).to be true
+      }
+      it {
+        n = user.notifications.take
+        n.seen!
+        expect(user.notifications.unseen.length).to be 2
+      }
+    end
+
+    describe 'dismiss/not_dismissed' do
+      let(:user) { FactoryGirl.create(:user) }
+
+      before :each do
+        create_list(:system_notification_message, 3, user: user)
+      end
+
+      it {expect(user.notifications.take.dismiss?).to be false}
+      it {expect(user.notifications.not_dismissed.length).to be 3}
+      it {
+        n = user.notifications.take
+        n.dismiss!
+        expect(n.dismiss?).to be true
+      }
+      it {
+        n = user.notifications.take
+        n.dismiss!
+        expect(user.notifications.not_dismissed.length).to be 2
+      }
     end
   end
 end

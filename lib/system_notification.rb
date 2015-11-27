@@ -16,11 +16,11 @@ module SystemNotification
     end
 
     module ClassMethods
-      #has_many :notifications, class_name: 'SystemNotification::Message'
       def xx_class
         'XX Class'
       end
     end
-
   end
+
+
 end
