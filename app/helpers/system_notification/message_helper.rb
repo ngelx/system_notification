@@ -1,7 +1,7 @@
 module SystemNotification
   module MessageHelper
 
-    def display_system_message
+    def display_system_message(messages)
       content = render :partial => 'system_notification/message/display', :layout => false, :locals => { :messages => messages }
       if block_given?
         capture(content, &block)

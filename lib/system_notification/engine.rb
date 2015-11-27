@@ -7,12 +7,17 @@ module SystemNotification
       g.fixture_replacement :factory_girl, :dir => 'spec/factories'
     end
 
-    # config.to_prepare do
-    #   # Make the implementing application's helpers available to the engine.
-    #   # This is required for the overriding of engine views and helpers to work correctly.
-    #   SystemNotification::ApplicationController.helper Rails.application.helpers
-    # end
+    config.to_prepare do
+      # Make the implementing application's helpers available to the engine.
+      # This is required for the overriding of engine views and helpers to work correctly.
+      SystemNotification::ApplicationController.helper Rails.application.helpers
+    end
 
+    # initializer 'my_engine.action_controller' do |app|
+    #       ActiveSupport.on_load :action_controller do
+    #         helper MyEngine::ImportantHelper
+    #       end
+    #     end
 
     # Included in the else from fix_migrations
     # initializer :append_migrations do |app|

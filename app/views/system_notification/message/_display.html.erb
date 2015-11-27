@@ -2,7 +2,7 @@
   <% messages.each do |message| %>
     <div class="alert <%= message_to_class(message) %>" role="alert">
       <%= message.text %>
-      <%= link_to "Dismiss" message_dismiss_path(message), class: 'alert-link text-right', data: {dismiss: "alert"} %>
+      <%= link_to "Dismiss", system_notification.message_dismiss_path(message), class: 'alert-link text-right', data: {dismiss: "alert"}, remote: true %>
     </div>
   <% end %>
 </div>

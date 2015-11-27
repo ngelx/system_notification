@@ -11,16 +11,38 @@ module SystemNotification
       has_many :notifications, class_name: 'SystemNotification::Message'
     end
 
-    def xx_module
-      "XX module"
-    end
+    # instance methods
 
     module ClassMethods
-      def xx_class
-        'XX Class'
-      end
+      # class method(s)
     end
   end
 
+  module Controller
+    extend ActiveSupport::Concern
 
+    included do
+      helper_method :current_notifications, :add_notification
+    end
+
+    # Get not dismissed notifications for current user
+    # @return [ActiveRecord::AssociationRelation]
+    def current_notifications
+      @current_notifications ||= current_user.notifications.not_dismissed
+    end
+
+    # Add a notification message to the current_user
+    #
+    # @param text: [string] the notification message
+    # @param level: [Symbol] (optional), The notification level. SystemNotification::Message.levels
+    #
+    def add_notification(args = {level: nil, text: nil})
+      current_user.system_notifications.create(args)
+    end
+
+
+    module ClassMethods
+      # class method(s) available for every controller
+    end
+  end
 end
