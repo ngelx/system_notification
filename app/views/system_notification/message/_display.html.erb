@@ -1,11 +1,11 @@
 <div class="system-notification">
   <% messages.each do |message| %>
-    <div class="alert <%= message_to_class(message)%> no-auto-hide alert-dismissable" role="alert">
+    <div id="notification-<%= message.id %>" class="alert <%= message_to_class(message)%> no-auto-hide alert-dismissable fade in" role="alert">
       <p>
         <%= message.text %>
       </p>
       <p class="text-right">
-        <%= link_to "Dismiss", system_notification.message_dismiss_path(message), class: 'alert-link', data: {dismiss: "alert"}, remote: true %>
+        <%= link_to "Dismiss", system_notification.message_dismiss_path(message, format: :js), class: 'alert-link', data: {dismiss: "alert"}, remote: true %>
       </p>
 
     </div>
