@@ -37,7 +37,7 @@ module SystemNotification
     # @param level: [Symbol] (optional), The notification level. SystemNotification::Message.levels
     #
     def add_notification(args = {level: nil, text: nil})
-      current_user.system_notifications.create(args)
+      current_user.notifications.create(args)
     end
 
 

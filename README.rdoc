@@ -1,6 +1,6 @@
 = SystemNotification
 
-This project rocks and uses MIT-LICENSE.
+Working progress .... 
 
 = TODO
  add UUID
@@ -10,3 +10,8 @@ This project rocks and uses MIT-LICENSE.
 class User < ActiveRecord::Base
   has_many :notifications, class_name: 'SystemNotification::Message'
 end
+
+
+= use
+
+add_notification(level: :warning, text: "bla bla")
