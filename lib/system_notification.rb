@@ -22,7 +22,7 @@ module SystemNotification
     extend ActiveSupport::Concern
 
     included do
-      helper_method :current_notifications, :add_notification
+      helper_method :current_notifications, :add_notification, :dismiss_all
     end
 
     # Get not dismissed notifications for current user
@@ -38,6 +38,12 @@ module SystemNotification
     #
     def add_notification(args = {level: nil, text: nil})
       current_user.notifications.create(args)
+    end
+
+    def dismiss_all_notifications
+      current_user.notifications.not_dismissed.each do |n|
+        n.dismiss!
+      end
     end
 
 
