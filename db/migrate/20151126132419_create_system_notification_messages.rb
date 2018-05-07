@@ -10,7 +10,7 @@ class CreateSystemNotificationMessages < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    add_index "system_notification_messages", ["user_id", "seen"], :name => "idx_message_seen"
-    add_index "system_notification_messages", ["user_id", "dismiss"], :name => "idx_message_dismiss"
+    add_index 'system_notification_messages', %w[user_id seen], name: 'idx_message_seen'
+    add_index 'system_notification_messages', %w[user_id dismiss], name: 'idx_message_dismiss'
   end
 end

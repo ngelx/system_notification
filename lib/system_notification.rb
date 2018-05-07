@@ -1,4 +1,4 @@
-require "system_notification/engine"
+require 'system_notification/engine'
 
 module SystemNotification
   module User
@@ -25,27 +25,24 @@ module SystemNotification
       helper_method :current_notifications, :add_notification, :dismiss_all
     end
 
-    # Get not dismissed notifications for current user
+    #  Get not dismissed notifications for current user
     # @return [ActiveRecord::AssociationRelation]
     def current_notifications
       @current_notifications ||= current_user.notifications.not_dismissed
     end
 
-    # Add a notification message to the current_user
+    #  Add a notification message to the current_user
     #
     # @param text: [string] the notification message
     # @param level: [Symbol] (optional), The notification level. SystemNotification::Message.levels
     #
-    def add_notification(args = {level: nil, text: nil})
+    def add_notification(args = { level: nil, text: nil })
       current_user.notifications.create(args)
     end
 
     def dismiss_all_notifications
-      current_user.notifications.not_dismissed.each do |n|
-        n.dismiss!
-      end
+      current_user.notifications.not_dismissed.each(&:dismiss!)
     end
-
 
     module ClassMethods
       # class method(s) available for every controller

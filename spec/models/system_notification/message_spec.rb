@@ -15,8 +15,8 @@ module SystemNotification
         create_list(:system_notification_message, 3, user: user)
       end
 
-      it {expect(user.notifications.take.seen?).to be false}
-      it {expect(user.notifications.unseen.length).to be 3}
+      it { expect(user.notifications.take.seen?).to be false }
+      it { expect(user.notifications.unseen.length).to be 3 }
       it {
         n = user.notifications.take
         n.seen!
@@ -36,9 +36,9 @@ module SystemNotification
         create_list(:system_notification_message, 3, user: user)
       end
 
-      it {expect(user.notifications.first.dismiss?).to be true}
-      it {expect(user.notifications.last.dismiss?).to be false}
-      it {expect(user.notifications.not_dismissed.length).to eq 1}
+      it { expect(user.notifications.first.dismiss?).to be true }
+      it { expect(user.notifications.last.dismiss?).to be false }
+      it { expect(user.notifications.not_dismissed.length).to eq 1 }
       it {
         n = user.notifications.not_dismissed.first
         n.dismiss!
@@ -58,31 +58,30 @@ module SystemNotification
         create_list(:system_notification_message, 3, user: user, level: :info)
       end
 
-      it {expect(user.notifications.not_dismissed.length).to eq 1}
+      it { expect(user.notifications.not_dismissed.length).to eq 1 }
 
       describe 'create a equal priority message' do
         before :each do
-          @notification = user.notifications.create(text:"text..", level: :info)
+          @notification = user.notifications.create(text: 'text..', level: :info)
         end
-        it {expect(@notification.dismiss?).to be false}
-        it {expect(user.notifications.not_dismissed.length).to eq 1}
+        it { expect(@notification.dismiss?).to be false }
+        it { expect(user.notifications.not_dismissed.length).to eq 1 }
       end
       describe 'create lower priority message' do
         before :each do
-          @notification = user.notifications.create(text:"text..", level: :debug)
+          @notification = user.notifications.create(text: 'text..', level: :debug)
         end
-        it {expect(@notification.dismiss?).to be true}
-        it {expect(user.notifications.not_dismissed.length).to eq 1}
+        it { expect(@notification.dismiss?).to be true }
+        it { expect(user.notifications.not_dismissed.length).to eq 1 }
       end
       describe 'create greater priority message' do
         before :each do
-          @notification = user.notifications.create(text:"text..", level: :error)
+          @notification = user.notifications.create(text: 'text..', level: :error)
         end
-        it {expect(user.notifications.not_dismissed.first).to eq @notification}
-        it {expect(@notification.dismiss?).to be false}
-        it {expect(user.notifications.not_dismissed.length).to eq 1}
+        it { expect(user.notifications.not_dismissed.first).to eq @notification }
+        it { expect(@notification.dismiss?).to be false }
+        it { expect(user.notifications.not_dismissed.length).to eq 1 }
       end
-
     end
   end
 end

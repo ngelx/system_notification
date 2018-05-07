@@ -1,8 +1,7 @@
 module SystemNotification
   module MessageHelper
-
     def display_system_message(messages)
-      content = render :partial => 'system_notification/message/display', :layout => false, :locals => { :messages => messages }
+      content = render partial: 'system_notification/message/display', layout: false, locals: { messages: messages }
       if block_given?
         capture(content, &block)
       else
@@ -21,6 +20,5 @@ module SystemNotification
       return 'alert-warning' if message.level2?
       return 'alert-error' if message.level3?
     end
-
   end
 end
