@@ -44,3 +44,5 @@ bower.json
 *.DS_Store*
 # Ignore pow environment settings
 .powenv
+.docker-sync
+docker-compose.yml

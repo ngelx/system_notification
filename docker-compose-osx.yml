@@ -1,0 +1,10 @@
+version: '2'
+services:
+  web:
+    build: .
+    command: bash -c 'bundle check || bundle install || bundle exec rspec spec'
+    volumes:
+      - system-notification-sync:/myapp:nocopy
+volumes:
+  system-notification-sync:
+    external: true
