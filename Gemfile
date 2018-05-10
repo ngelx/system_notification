@@ -12,11 +12,3 @@ gemspec
 
 # To use a debugger
 # gem 'byebug', group: [:development, :test]
-
-group :development, :test do
-  gem 'factory_girl_rails', '~> 4.0'
-  gem 'rubocop', require: false
-  #  gem 'factory_girl'
-  gem 'annotate'
-  #  gem 'simplecov', require: false
-end

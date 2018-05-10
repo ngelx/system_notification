@@ -4,12 +4,12 @@ module SystemNotification
   RSpec.describe Message, type: :model do
     describe 'Basic' do
       it 'Message is a valid factory' do
-        expect(FactoryGirl.build(:system_notification_message).valid?).to be true
+        expect(build(:system_notification_message).valid?).to be true
       end
     end
 
     describe 'seen/unseen' do
-      let(:user) { FactoryGirl.create(:user) }
+      let(:user) { create(:user) }
 
       before :each do
         create_list(:system_notification_message, 3, user: user)
@@ -30,7 +30,7 @@ module SystemNotification
     end
 
     describe 'dismiss/not_dismissed' do
-      let(:user) { FactoryGirl.create(:user) }
+      let(:user) { create(:user) }
 
       before :each do
         create_list(:system_notification_message, 3, user: user)
@@ -52,7 +52,7 @@ module SystemNotification
     end
 
     describe 'priority handler' do
-      let(:user) { FactoryGirl.create(:user) }
+      let(:user) { create(:user) }
 
       before :each do
         create_list(:system_notification_message, 3, user: user, level: :info)
